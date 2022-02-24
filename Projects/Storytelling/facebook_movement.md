@@ -3,11 +3,11 @@
 
 ### Method
 
-Work collaboratively in groups of 2-4 
+Work collaboratively in groups of 2-3
 
 ### Time
 
-You have until **!ASK ANGELA for the time!** pm today to get the data, analyse it, and develop a story around the data which can be presented back to the classroom
+You have until **!ASK KOFI for the time!** pm today to get the data, analyse it, and develop a story around the data which can be presented back to the classroom
 
 ### Tools 
 
@@ -15,7 +15,7 @@ Tableau (with extra support from Python as needed)
 
 ### Introduction
 
-There must have been times during the past 18 months that you have felt like you were living in a dystopian novel or had accidentally auditioned for a surrealist play, where faceless government agencies and an giant spiky virus were making decisions about your personal/ professional life and your freedom of movement. 
+There must have been times during the past 24 months that you have felt like you were living in a dystopian novel or had accidentally auditioned for a surrealist play, where faceless government agencies and an giant spiky virus were making decisions about your personal/ professional life and your freedom of movement. 
 
 It would be silly for us to complete a data analyst course without giving some attention to covid-19, but we will approach it as analysts - start with raw data, then add in our emotions and personal experience to shape it into a data story. You will be working with a database that facebook has gathered and shared for public non-commercial use - HINT : when you can, give some thought to the reliability and quality of the data source, and what portion of the population is going to be unavoidably excluded from this data / ie whats the bias..... Despite my antipathy towards facebook (cough, I mean 'Meta'), its the best raw data source we found to start you off on this project. Of course, the internet is full of a thousand other covid related data sources - but be careful not to go too far down the alice in wonderland rabbit holes and forget the time!
 
@@ -55,4 +55,4 @@ POLYGON DATA :  If you want to integrate spatial file polygons with your data (p
 - Use what you know - if you already have an opinion about a trend in a particular city or country, see if the data we have given you backs this up, that could give you a head start!
 - Deadline is today so there is a little time pressure to come up with a story, understand the facebook data, identify additional data points or sources, bring it together and visualise it inside Tableau. At the end of the  project you will be sharing your story with the whole class. 
 
-**Important! this is not a formal / polished presentation- you can simply nominate one person in your team to click through and demonstrate your group's story on the classroom. Feel free to make it funny, entertaining, bringing in memes, sound effects, or being controversial - you can entertain and shock us! 
+**Important! this is not a formal / polished presentation like the mid bootcamp project- you can simply nominate one person in your team to click through and demonstrate your group's story on the classroom. Feel free to make it funny, entertaining, bringing in memes, sound effects, or being controversial - you can entertain and shock us- but it must be informative and structured as a data story. 
