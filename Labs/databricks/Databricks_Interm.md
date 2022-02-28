@@ -9,21 +9,50 @@ In this second lab we will work with data science methods on small and big data 
 ## steps 
 
 
-1) ensure you have a running cluster - you will possibly have to recreate your cluster from yesterday if there is no active cluster. On the community edition clusters are deleted if unused for a period of time. 
+1) ensure you have a running cluster - you will possibly have to recreate your cluster from yesterday if there is no active cluster or restart it. On the community edition clusters are terminated if unused for a period of time. 
 
-2) next import your data for the first data science method - small data - this is going to be the stroke data set we used on previous lessons. You will find this in the class materials on GitHub. 
-It is important when creating and working with this data table that you do the following steps : 
+---------
+### Part 1 - quite big data - for this challenge you should be in the Data Science and Engineering mode.
 
-- create table in a notebook - table is populated from the strokes_data.csv and stored under a DFBS target directory /strokes/ so it is easy for you to find in the file store
-- in the first python cell (this will be first if the notebook is python!) you will need to change one parameter - headers are in first row = true 
-- name your notebook eg. strokes_importcsv to differentiate this notebook from others that you may later upload
+2) you already should have uploaded your 'big' data source, the instacart market basket analysis data collection. Here is a description on Kaggle which may be helpful https://www.kaggle.com/c/instacart-market-basket-analysis/overview. As you can see the data is large and broken over multiple tables, so working with it, analysing and then using data science methods to predict the basket is going to involve data engineering. 
+3) next, load the notebook from here https://databricks.com/notebooks/gallery/MarketBasket.html
+4) to run the notebook you will need to change the data locations - pointing at the DBFS storage / folders you have saved the files to. 
+5) following the notebook cells, you will see the following steps which are familiar to you as your end to end data science flow, but with an additional step for engineering the data into a new shape when that is needed, for which you will see pyspark sql is used  : 
+- ingest data 
+- review and explore, visualise 
+- reshape the data as needed ( in this case by individual basket so we know which food items each order included)
+- modeling 
+6) the models used here are going to be unfamiliar to you because they are for frequency pattern mining, rather than classification or regression, which we have worked with. Note that the scala.api is used to call the models and we switch language again to [scala](https://www.scala-lang.org/) and choose the model FP growth. 
+7) the result of our basket analysis is that we can explore the most frequently purchased items and predict which items will be purchased alongside others (note the degree of confidence in the right column of the last output cell) 
 
 
-3) run your ML model - random forest 
+-------------
 
-4) Import the existing Jupiter notebook you had for this data source (hint : we worked on this in class during week 4 - to understand data imbalance) 
+## part 2 - quite small data but using ML flow to understand training and selection of models- for this challenge you should be in Machine Learning mode
 
-5) Deploy models and manage production deployment stages -in the community edition we don't have a full production job capacity or git integration :( however we will set up a production flow using folders in our workspace AND we can use a simple managed MLflow experience for lightweight experimentation in the Community Edition too. For more information on ML flow see the documentation https://docs.databricks.com/applications/mlflow/index.html and https://www.mlflow.org/
+1) our goal is to see how to work with multiple models and experiments inside databricks. This approach utilises a new tool to us , called [MLFLow](https://www.mlflow.org/)- extra documentation [here](https://docs.databricks.com/applications/mlflow/index.html). As you work through this challenge, consider how this set up differs to the way you worked on your iterative models during the mid bootcamp project.  
+2) Here is the link to the [model training quickstart notebook](https://docs.databricks.com/applications/machine-learning/train-model/ml-quickstart.html), which you will need to import 
+3) you will require a ML cluster (you can terminate the existing cluster and create a new one if needed. On the community edition you can have multiple clusters but only one running) - go to the Compute menu to manage this. 
+4) You will need to obtain the data from the UCI ML Repository or Kaggle, upload it to the databricks file storage and then alter the paths in your notebook
+[kaggle red wine](https://www.kaggle.com/uciml/red-wine-quality-cortez-et-al-2009)
+[kaggle white wine](https://www.kaggle.com/piyushagni5/white-wine-quality)
+6) Run through the notebook - you will be training a gradient boost model to predict wine quality, with various experiments (iterations) with hyperparameter tuning - then using ML flow to find the best model. 
+
+
+## part 3 - deploy to production - for this challenge you can be in any databricks mode
+
+as discussed in class, moving machine learning models from development , through test and into live mode requires some planning and procedures. Note, in the community edition we don't have a full production job capacity, multiple users or git integration :( 
+- however we can set up a production flow using folders in our workspace and experience promoting notebooks between them 
+
+1) Create three folders in your shared workspace calling them 'develop' 'UAT or test' 'production or live'
+2) Choose one of your notebooks (or create a new one from scratch) , attach it to an appropriate cluster 
+3) Move the notebook to the develop folder and run it to ensure you are happy this one is ready to be promoted.
+4) OPTIONAL In a BAU (business as usual) environment we would have a separate production and test cluster running! If you want you can create those clusters, but remember we can only have one running at any time in the Community Edition. 
+5) clone the notebook to test - and annotate a MARKDOWN cell at the top of the notebook to confirm the test or UAT criteria you would propose for this notebook. Consider total run time, cluster attached, max cell run time, experiment accuracy etc. 
+6)  Review the tests you have devised with a colleague in the classroom - if they are satisfied, then you are ready to promote. In real life this could involve a handover to another team or completion of a [deployment release procedure](https://www.lucidchart.com/blog/release-management-process)
+7)  Finally, clone the notebook to the production or live folder. Send me sian.davies@ironhack.com and kofi ta-data-bcn@ironhack.com an email confirming your notebook is live with screenshots of your folders and notebook, to complete the lab 
+
+<img width="270" alt="image" src="https://user-images.githubusercontent.com/71644535/155672848-f1016cb8-f814-4d94-a2f1-f796e2a1d570.png">
 
 
 
